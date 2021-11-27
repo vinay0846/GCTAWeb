@@ -79,10 +79,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gcta_local',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'USER': 'gcta',
+        'PASSWORD': 'gcat@123',
+        'HOST': '192.168.10.120',
+        'PORT': '3307',
     }
 }
 
