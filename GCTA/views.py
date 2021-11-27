@@ -18,7 +18,7 @@ def Login(request):
 
 def HomePage(request):
         # username = request.session['username']
-    return render(request,'HomePage.htl')
+    return render(request,'HomePage.html')
 
 def RegisterPage(request):
     # if request.method=='post':
