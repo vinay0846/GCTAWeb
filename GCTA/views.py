@@ -1,12 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
-# from django.contrib.auth.models import user,auth
+
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    if request.session.has_key('username'):
+        # username = request.session['username']
+        return redirect('HomePage')
+    else:
+      return render(request,'index.html')
+
+def Login(request):
+    if request.method == 'GET':
+        UserId = request.GET['userid']
+        request.session['username'] = UserId
+        return HttpResponse('success')
 
 def HomePage(request):
+        # username = request.session['username']
     return render(request,'HomePage.html')
 
 def RegisterPage(request):
