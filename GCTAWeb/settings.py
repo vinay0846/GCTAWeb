@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gcta_local',
         'USER': 'gcta',
-        'PASSWORD': 'gcat@123',
+        'PASSWORD': 'gcta_123',
         'HOST': '192.168.10.120',
         'PORT': '3307',
     }

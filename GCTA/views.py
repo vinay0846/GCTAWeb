@@ -63,8 +63,37 @@ def Submission(request):
 def Forgotpassword(request):
     return render(request,'forgotpassword.html')
 
-def Consent(request): 
+def Consentpage(request): 
     return render(request,'Consent.html')
+
+@csrf_exempt
+def Consent(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        mynameid="1"
+        myname=request.POST['myname']
+        experienceid="1"
+        experience=request.POST['experience']
+        photographsid="1"
+        photographs=request.POST['photographs']
+        videosid="1"
+        videos=request.POST['videos']
+        date=request.POST['date']
+        address=request.POST['address']
+        cnt_num=request.POST['cnt_num']
+        email=request.POST['email']
+        fld_logged_in_user_id =''
+        fld_data_source ='W'
+        fld_form_start_time =''
+        fld_form_end_time =''
+        sql = "call sp_consent_form("+"'"+name+"'"+","+"'"+mynameid+"'"+","+"'"+myname+"'"+","+"'"+experienceid+"'"+","+"'"+experience+"'"+","+"'"+photographsid+"'"+","+"'"+photographs+"'"+","+"'"+videosid+"'"+","+"'"+videos+"'"+","+"'"+date+"'"+","+"'"+address+"'"+","+"'"+cnt_num+"'"+","+"'"+email+"'"+","+"'"+fld_logged_in_user_id+"'"+","+"'"+fld_data_source+"'"+","+"'"+fld_form_start_time+"'"+","+"'"+fld_form_end_time+"'"+")"
+        cursor = connection.cursor()
+        connection.commit()
+        result = cursor.execute(sql)
+        if result == 1:
+            return HttpResponse("success")
+        else:
+            return HttpResponse("something wentwrong!!")
 
 def Pre_and_post(request): 
     return render(request,'Pre_and_post.html')   

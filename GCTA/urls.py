@@ -10,6 +10,8 @@ urlpatterns = [
     path('Submission', views.Submission , name='Submission'),
     path('Forgotpassword', views.Forgotpassword , name='Forgotpassword'),
     path('Pre_and_post', views.Pre_and_post , name='Pre_and_post'),
+    path('Consentpage', views.Consentpage , name='Consentpage'),
     path('Consent', views.Consent , name='Consent'),
+    
 ]
 
